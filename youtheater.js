@@ -62,9 +62,7 @@ function onPlayerReady(event, url) {
 }
 
 function onPlaybackQualityChange(event) {
-  console.log("changing quality to " + event.target.getPlaybackQuality());
   $.cookie('DefaultQuality', event.target.getPlaybackQuality(), { expires: 7, path: '/' });
-  console.log($.cookie('DefaultQuality'));
 }
 
 $(document).ready(function() {
