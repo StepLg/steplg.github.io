@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="lib/url.min.js"></script>
+    <script src="lib/js.cookie.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="yousplit.js"></script>
+    <style>
+    #controls {
+      position:fixed;
+      width:calc(100% - 320px);
+      height:35px;
+      bottom:0px;
+    }
+    div.split_main {
+      position:fixed;
+      left: 0px;
+      top: 0px;
+      width:calc(100% - 320px);
+      height:calc(100% - 35px);
+    }
+
+    div.split_side {
+      position: absolute;
+      right: 0px;
+    }
+
+    #main_cover {
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      z-index:1000;
+      width:calc(100% - 320px);
+      height:calc(100% - 35px);
+    }
+
+    #side_cover {
+      position: absolute;
+      right: 0px;
+      width: 320px;
+      z-index: 1000;
+    }
+
+    #progress {
+      width: 100%;
+      font-size: 30%;
+    }
+
+    #progress .ui-slider-range { background: #ef2929; }
+    #progress .ui-slider-handle { border-color: #ef2929; }
+
+    #volume {
+      width: 100%;
+      font-size: 30%;
+    }
+
+    #volume .ui-slider-range { background: #ef2929; }
+    #volume .ui-slider-handle { border-color: #ef2929; }
+
+    </style>
+  </header>
+  <body style="margin:0px;">
+    <div id="main_cover" onclick="brTogglePlay()"></div>
+    <div id="side_cover" onclick="onSideCoverClick(event)"></div>
+    <div id="controls">
+      <div id="progress"></div>
+      <table style="margin:0px"><tr>
+        <td><button onclick="brTogglePlay()">Play/Pause</button></td>
+        <td><button onclick="brToggleMute()">Mute/UnMute</button></td>
+        <td>Speed:<select id="rateSelect" onchange="brChangePlaybackRate(value)" /></td>
+        <td><div id="volume"></div>Volume</td>
+        <td><input type="checkbox" id="switchAudio" checked="true">Switch audio with video</input></td>
+      </tr></table>
+    </div>
+  </body>
+</html>
